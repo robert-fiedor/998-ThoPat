@@ -14,17 +14,11 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('todo', ['ionic'])
-/**
- * The Projects factory handles saving and loading projects
- * from local storage, and also lets us save and load the
- * last active project index.
- */
-    .factory('Projects', function() {
+angular.module('todo', ['ionic']).factory('Projects', function() {
         return {
             all: function() {
                 var projectString = window.localStorage['projects'];
-                if(projectString) {
+                if(projectString) { 
                     return angular.fromJson(projectString);
                 }
                 return [];
