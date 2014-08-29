@@ -3,17 +3,11 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['ionic'])
-    .controller('MyCtrl1', ['$scope', function ($scope) {
 
-    }])
-    .controller('MyCtrl2', ['$scope', function ($scope) {
-
-    }])
 
     .controller('RootCtrl', function ($scope) {
         $scope.onControllerChanged = function (oldController, oldIndex, newController, newIndex) {
-            console.log('Controller changed', oldController, oldIndex, newController, newIndex);
-            console.log(arguments);
+           console.log(123)
         };
     })
     .controller('HomeCtrl', function ($scope, $timeout, $ionicModal, $ionicActionSheet) {
