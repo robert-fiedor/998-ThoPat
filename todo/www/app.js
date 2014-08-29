@@ -3,13 +3,6 @@
 angular.module('myApp', ['ionic']);
 
 
-
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
-
 function HomeCtrl($scope, $timeout, $ionicModal, $ionicActionSheet) {
     $scope.items = [];
 
@@ -46,7 +39,7 @@ function HomeCtrl($scope, $timeout, $ionicModal, $ionicActionSheet) {
         $timeout(function () {
             $scope.$broadcast('scroll.refreshComplete');
         }, 1000);
-    }
+    };
 
 
     $scope.removeItem = function (item) {

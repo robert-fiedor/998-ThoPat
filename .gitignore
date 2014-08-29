@@ -38,3 +38,6 @@ Icon
 .Trashes
 
 .idea/workspace.xml
+.idea/tasks.xml
+
+/todo/node_modules

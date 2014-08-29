@@ -34,7 +34,7 @@ function HomeCtrl($scope, $timeout, $ionicModal, $ionicActionSheet) {
         $timeout(function () {
             $scope.$broadcast('scroll.refreshComplete');
         }, 1000);
-    }
+    };
 
 
     $scope.removeItem = function (item) {
