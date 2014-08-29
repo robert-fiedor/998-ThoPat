@@ -1,3 +1,4 @@
+.idea/*
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -36,4 +37,4 @@ Icon
 .Spotlight-V100
 .Trashes
 
-.idea
+.idea/workspace.xml
