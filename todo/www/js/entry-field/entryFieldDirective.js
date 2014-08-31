@@ -1,8 +1,3 @@
-'use strict';
-
-angular.module('myApp', ['ionic']);
-
-
 angular.module('myApp').directive('entryFieldDirective', [
      function () {
         return {
@@ -17,10 +12,3 @@ angular.module('myApp').directive('entryFieldDirective', [
         };
     }
 ]);
-
-function HomeCtrl($scope, $timeout, $ionicModal, $ionicActionSheet) {
-}
-
-angular
-    .module('myApp')
-    .controller('HomeCtrl', HomeCtrl);
