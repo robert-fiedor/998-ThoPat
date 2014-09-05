@@ -1,10 +1,10 @@
-angular.module('myApp').directive('entryFieldDirective', [
+angular.module('myApp').directive('smartButton', [
      function () {
         return {
             restrict: 'E',
-            templateUrl: 'js/entry-field/my-customer.html',
+            templateUrl: 'js/smart-button/smart-button.html',
             link: function (scope) {
-                console.log(123);
+                console.log('smartbutton ini');
                 scope.lala=1;
             }
         };

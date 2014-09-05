@@ -1,4 +1,12 @@
-function HomeCtrl($scope, $timeout, $ionicModal, $ionicActionSheet) {
+function HomeCtrl($scope, localStorageService) {
+
+    $scope.uno='uno!';
+
+    $scope.init = function(){
+        console.log('local:',localStorageService)
+
+    };
+
 }
 
 angular

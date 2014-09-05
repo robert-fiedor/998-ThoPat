@@ -7,17 +7,20 @@
 
     <link href="css/ionic.app.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-local-storage.js"></script>
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <!--<script src="cordova.js"></script>-->
 </head>
 
-<body>
+<body ng-controller="HomeCtrl">
 
-<div class="bar bar-header bar-light">
-  <h1 class="title">bar-light yo1</h1>
-</div>
+{{uno}}
 
-<entry-field-directive></entry-field-directive>
+<!--<div class="bar bar-header bar-light">-->
+  <!--<h1 class="title">bar-light yo1</h1>-->
+<!--</div>-->
+
+<smart-button></smart-button>
 
 <script src="app.js"></script>
 
