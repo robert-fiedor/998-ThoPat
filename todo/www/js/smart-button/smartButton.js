@@ -4,8 +4,10 @@ angular.module('myApp').directive('smartButton', [
             restrict: 'E',
             templateUrl: 'js/smart-button/smart-button.html',
             link: function (scope) {
+
                 console.log('smartbutton ini');
                 scope.lala=1;
+
             }
         };
     }
