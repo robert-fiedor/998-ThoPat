@@ -18,21 +18,28 @@ angular.module('myApp').directive('entryFieldDirective', [
     }
 ]);
 
-function HomeCtrl($scope, localStorageService) {
+function HomeCtrl($scope, localStorageService,localStoragePath) {
 
     $scope.uno='uno!';
 
     $scope.init = function(){
-        console.log('local:',localStorageService)
+
+        localStorageService.set(localStoragePath.PATH,{kl:{kl:2}});
+        var value = localStorageService.get(localStoragePath.PATH);
+        console.log('<<<',localStoragePath)
 
     };
 
+    $scope.init();
 }
 
 angular
     .module('myApp')
     .controller('HomeCtrl', HomeCtrl);
 
+angular.module('myApp').constant( 'localStoragePath', {
+    'PATH': 'PATH'
+});
 angular.module('myApp').directive('smartButton', [
      function () {
         return {
