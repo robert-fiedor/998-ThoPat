@@ -5,31 +5,7 @@ angular.module('myApp', ['ionic','LocalStorageModule']);
 
 
 
-angular.module('myApp')
-
-    .constant( 'LOCAL_STORAGE', {
-    'PATH': 'PATH'})
-    .constant( 'MAIN_STATE', {
-        'EDIT':'EDIT',
-        'RECORD': 'RECORD'})
-
-
-
-;
-angular.module('myApp').directive('entryFieldDirective', [
-     function () {
-        return {
-            restrict: 'E',
-            templateUrl: 'js/entry-field/my-customer.html',
-            link: function (scope) {
-                console.log(123);
-                scope.lala=1;
-            }
-        };
-    }
-]);
-
-function HomeCtrl($scope, localStorageService,LOCAL_STORAGE, MAIN_STATE) {
+function HomeCtrl($scope, localStorageService, LOCAL_STORAGE, MAIN_STATE) {
 
     $scope.uno='uno!';
 
@@ -63,3 +39,45 @@ angular.module('myApp').directive('smartButton', [
         };
     }
 ]);
+
+
+angular.module('myApp')
+
+.factory('ThoughtsFactory', function() {
+    return {
+        all: function() {
+            var projectString = window.localStorage['projects'];
+            if(projectString) {
+                return angular.fromJson(projectString);
+            }
+            return [];
+        },
+        save: function(projects) {
+            window.localStorage['projects'] = angular.toJson(projects);
+        },
+        newProject: function(projectTitle) {
+            // Add a new project
+            return {
+                title: projectTitle,
+                tasks: []
+            };
+        },
+        getLastActiveIndex: function() {
+            return parseInt(window.localStorage['lastActiveProject']) || 0;
+        },
+        setLastActiveIndex: function(index) {
+            window.localStorage['lastActiveProject'] = index;
+        }
+    }
+})
+angular.module('myApp')
+
+    .constant( 'LOCAL_STORAGE', {
+    'PATH': 'PATH'})
+    .constant( 'MAIN_STATE', {
+        'EDIT':'EDIT',
+        'RECORD': 'RECORD'})
+
+
+
+;
