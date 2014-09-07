@@ -8,6 +8,13 @@ angular.module('myApp').directive('smartButton', [
                 console.log('smartbutton ini');
                 scope.lala=1;
 
+                scope.onBlur = function() {
+                    console.log('on blur');
+                }
+
+                scope.buttonInfo = "init val";
+
+
             }
         };
     }

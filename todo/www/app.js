@@ -5,6 +5,61 @@ angular.module('myApp', ['ionic','LocalStorageModule']);
 
 
 
+
+angular.module('myApp')
+
+.factory('ThoughtsFactory', function() {
+    return {
+
+        save: function(projects) {
+
+            // window.localStorage['projects'] = angular.toJson(projects);
+            
+        }
+
+
+    }
+})
+
+
+
+
+
+    //     all: function() {
+    //         var projectString = window.localStorage['projects'];
+    //         if(projectString) {
+    //             return angular.fromJson(projectString);
+    //         }
+    //         return [];
+    //     },
+    //     save: function(projects) {
+    //         window.localStorage['projects'] = angular.toJson(projects);
+    //     },
+    //     newProject: function(projectTitle) {
+    //         // Add a new project
+    //         return {
+    //             title: projectTitle,
+    //             tasks: []
+    //         };
+    //     },
+    //     getLastActiveIndex: function() {
+    //         return parseInt(window.localStorage['lastActiveProject']) || 0;
+    //     },
+    //     setLastActiveIndex: function(index) {
+    //         window.localStorage['lastActiveProject'] = index;
+    //     }
+    // 
+angular.module('myApp')
+
+    .constant( 'LOCAL_STORAGE', {
+    'PATH': 'PATH'})
+    .constant( 'MAIN_STATE', {
+        'EDIT':'EDIT',
+        'RECORD': 'RECORD'})
+
+
+
+;
 function HomeCtrl($scope, localStorageService, LOCAL_STORAGE, MAIN_STATE) {
 
     $scope.uno='uno!';
@@ -35,49 +90,14 @@ angular.module('myApp').directive('smartButton', [
                 console.log('smartbutton ini');
                 scope.lala=1;
 
+                scope.onBlur = function() {
+                    console.log('on blur');
+                }
+
+                scope.buttonInfo = "init val";
+
+
             }
         };
     }
 ]);
-
-
-angular.module('myApp')
-
-.factory('ThoughtsFactory', function() {
-    return {
-        all: function() {
-            var projectString = window.localStorage['projects'];
-            if(projectString) {
-                return angular.fromJson(projectString);
-            }
-            return [];
-        },
-        save: function(projects) {
-            window.localStorage['projects'] = angular.toJson(projects);
-        },
-        newProject: function(projectTitle) {
-            // Add a new project
-            return {
-                title: projectTitle,
-                tasks: []
-            };
-        },
-        getLastActiveIndex: function() {
-            return parseInt(window.localStorage['lastActiveProject']) || 0;
-        },
-        setLastActiveIndex: function(index) {
-            window.localStorage['lastActiveProject'] = index;
-        }
-    }
-})
-angular.module('myApp')
-
-    .constant( 'LOCAL_STORAGE', {
-    'PATH': 'PATH'})
-    .constant( 'MAIN_STATE', {
-        'EDIT':'EDIT',
-        'RECORD': 'RECORD'})
-
-
-
-;
