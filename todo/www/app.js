@@ -7,22 +7,18 @@ angular.module('myApp', ['ionic','LocalStorageModule','angularUUID2']);
 
 
 angular.module('myApp')
-
 .factory('ThoughtsFactory', function() {
-    return {
+  
+  var ListService = {};
+  var list = [];
 
-        save: function(projects) {
+  ListService.getItem = function(index) { return list[index]; }
+  ListService.addItem = function(item) { list.push(item); }
+  ListService.removeItem = function(item) { list.splice(list.indexOf(item), 1) }
+  ListService.size = function() { return list.length; }
 
-            // window.localStorage['projects'] = angular.toJson(projects);
-            
-        }
-
-
-    }
-})
-
-
-
+  return ListService;
+});
 
 
     //     all: function() {
@@ -83,11 +79,12 @@ angular
     .controller('HomeCtrl', HomeCtrl);
 
 
-angular.module('myApp').directive('smartButton', ['uuid2',
-   function (uuid2) {
+angular.module('myApp').directive('smartButton', ['uuid2','ThoughtsFactory',
+ function (uuid2,ThoughtsFactory) {
     return {
         restrict: 'E',
         templateUrl: 'js/smart-button/smart-button.html',
+        scope:{},
         link: function (scope) {
 
             scope.onBlur = function() {
@@ -101,12 +98,10 @@ angular.module('myApp').directive('smartButton', ['uuid2',
             };
 
             scope.buttonData.textf = uuid2.newuuid();
+            
+            ThoughtsFactory.addItem(scope.buttonData);
 
-            // console.log('...',uuid2.newuuid(),uuid2.newguid())
-
-            // var guid = require('angular-uid');
-            // console.log(guid())
-
+            console.log(1,ThoughtsFactory.size());
 
         }
     };

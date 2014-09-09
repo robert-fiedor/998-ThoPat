@@ -1,21 +1,17 @@
 
 angular.module('myApp')
-
 .factory('ThoughtsFactory', function() {
-    return {
+  
+  var ListService = {};
+  var list = [];
 
-        save: function(projects) {
+  ListService.getItem = function(index) { return list[index]; }
+  ListService.addItem = function(item) { list.push(item); }
+  ListService.removeItem = function(item) { list.splice(list.indexOf(item), 1) }
+  ListService.size = function() { return list.length; }
 
-            // window.localStorage['projects'] = angular.toJson(projects);
-            
-        }
-
-
-    }
-})
-
-
-
+  return ListService;
+});
 
 
     //     all: function() {

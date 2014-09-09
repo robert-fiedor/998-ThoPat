@@ -1,16 +1,16 @@
 
-        'use strict'
-        angular.module('angularUUID2', []).factory('uuid2', [
-            function() {
-                function s4() {
-                    return Math.floor((1 + Math.random()) * 0x10000)
-                        .toString(16)
-                        .substring(1);
-                }
+'use strict'
+angular.module('angularUUID2', []).factory('uuid2', [
+    function() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
 
-                return {
+        return {
 
-                    newuuid: function() {
+            newuuid: function() {
                         // http://www.ietf.org/rfc/rfc4122.txt
                         var s = [];
                         var hexDigits = "0123456789abcdef";
@@ -24,8 +24,8 @@
                     },
                     newguid: function() {
                         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-                            s4() + '-' + s4() + s4() + s4();
+                        s4() + '-' + s4() + s4() + s4();
                     }
                 }
-            
-        }])
+                
+            }])
